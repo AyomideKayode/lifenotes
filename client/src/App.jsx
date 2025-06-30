@@ -1,13 +1,37 @@
 // src/App.jsx
 import React from 'react';
+import { Container, AppBar, Grow, Grid, Typography } from '@mui/material';
+
+import Posts from './components/Posts/Posts';
+import Form from './components/Form/Form';
+// Importing the logo image
+import lifenotes from './images/lifenotes.png';
+import useStyles from './styles';
 // import { useState } from 'react'
 
 const App = () => {
+  const classes = useStyles();
   return (
-    <div>
-      <h1>LifeNotes</h1>
-      <p>Welcome to your personal memory board.</p>
-    </div>
+    <Container maxWidth="lg">
+      <AppBar className={classes.appBar} position='static' color='inherit'>
+        <Typography className={classes.heading} variant='h2' align="center">
+          LifeNotes
+        </Typography>
+        <img className={classes.image} src={lifenotes} height='60' alt="LifeNotes logo" />
+      </AppBar>
+      <Grow in>
+        <Container>
+          <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+            <Grid item xs={12} sm={7}>
+              <Posts />
+            </Grid>
+            <Grid item xs={12} sm={7}>
+              <Form />
+            </Grid>
+          </Grid>
+        </Container>
+      </Grow>
+    </Container>
   );
 };
 
