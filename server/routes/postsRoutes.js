@@ -1,11 +1,11 @@
 // 'use strict';
 import express from 'express';
 
-import { getPosts, createPosts } from '../controllers/posts.js';
+import { getPosts, createPost } from '../controllers/postsController.js';
 
 const router = express.Router();
 
 router.get('/', getPosts); // GET request to /posts will call getPosts controller
-router.get('/', createPosts);
+router.post('/', createPost);
 
 export default router;
