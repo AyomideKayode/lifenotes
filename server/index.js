@@ -13,11 +13,11 @@ import postsRoutes from './routes/postsRoutes.js';
 // initialize express app
 const app = express();
 
-app.use('/posts', postsRoutes); // use posts routes
-
 app.use(bodyParser.json({ limit: '30mb', extended: true })); // set limit for json body (imgs and other large data)
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true })); // set limit for json body (imgs and other large data)
 app.use(cors());
+
+app.use('/posts', postsRoutes); // use posts routes
 
 // set up mongoose connection
 // const CONNECTION_URL = process.env.CONNECTION_URL || 'mongodb://localhost:27017/lifeNotes-db'; // fallback to local MongoDB if env variable is not set
