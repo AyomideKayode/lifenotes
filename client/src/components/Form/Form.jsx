@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { TextField, Paper, Typography, Button } from '@mui/material';
+import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
+import { createPost } from '../../actions/posts';
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -13,9 +15,11 @@ const Form = () => {
   })
 
   const classes = useStyles();
+  const dispatch = useDispatch();
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createPost(postData));
   }
 
   const clear = () => {
