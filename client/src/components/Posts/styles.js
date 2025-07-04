@@ -3,6 +3,9 @@ export const useStyles = () => ({
     display: 'flex',
     alignItems: 'center',
   },
+  container: {
+    padding: '20px',
+  },
   smMargin: {
     margin: '8px', // replaced theme.spacing(1) with fixed value
   },
