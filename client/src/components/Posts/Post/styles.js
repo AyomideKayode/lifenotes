@@ -1,9 +1,11 @@
 export const useStyles = () => ({
   media: {
-    height: 0,
-    paddingTop: '56.25%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    height: 240,
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
     backgroundBlendMode: 'darken',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    position: 'relative',
   },
   border: {
     border: 'solid',
@@ -18,18 +20,27 @@ export const useStyles = () => ({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+    transition: 'box-shadow 0.3s ease',
+    '&:hover': {
+      boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
+    },
   },
   overlay: {
     position: 'absolute',
     top: '20px',
     left: '20px',
     color: 'white',
+    background: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: '8px',
+    padding: '8px 12px',
   },
   overlay2: {
     position: 'absolute',
     top: '20px',
     right: '20px',
     color: 'white',
+    zIndex: 2,
   },
   grid: {
     display: 'flex',
