@@ -5,9 +5,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import moment from 'moment';
 import useStyles from './styles';
+import { useDispatch } from 'react-redux';
+
+import { deletePost } from '../../../actions/posts';
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
   if (!post) return null; // Handle case where post is not available
 
   // console.log('Post data:', post); // Debug log to check post data
@@ -67,7 +73,7 @@ const Post = ({ post, setCurrentId }) => {
           Like
           {post.likeCount}
         </Button>
-        <Button size="small" color="primary" onClick={() => { /* Handle delete */ }}>
+        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
           <DeleteIcon fontSize="small" />
           Delete
         </Button>
