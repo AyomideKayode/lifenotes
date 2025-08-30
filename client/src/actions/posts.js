@@ -37,3 +37,12 @@ export const deletePost = (id) => async (dispatch) => {
     console.error('Error deleting post:', error); // Log any errors that occur during the post deletion
   }
 };
+
+export const likePost = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.likePost(id);
+    dispatch({ type: 'UPDATE', payload: data }); // Dispatch action to update the post in the state
+  } catch (error) {
+    console.log(error);
+  }
+};
